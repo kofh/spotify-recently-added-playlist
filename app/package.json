@@ -1,0 +1,7 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "app for recently added playlist",
+  "main": "index.js",
+  "license": "MIT"
+}

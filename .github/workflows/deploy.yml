@@ -1,0 +1,8 @@
+name: deploy
+on: [push]
+jobs:
+  zip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: zip example.zip ./app/main.js

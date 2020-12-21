@@ -5,5 +5,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: ls
-      - run: zip example.zip ./app/main.js
+      - run: zip lambda.zip app/index.js

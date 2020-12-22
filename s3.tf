@@ -11,4 +11,8 @@ resource "aws_s3_bucket" "lambda-assets-bucket" {
       }
     }
   }
+
+  tags = {
+    "Project" = "Spotify Recently Added Playlist"
+  }
 }

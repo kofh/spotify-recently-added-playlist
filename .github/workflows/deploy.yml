@@ -4,5 +4,20 @@ jobs:
   zip:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: zip lambda.zip app/index.js
+      - name: Checkout
+        uses: actions/checkout@
+
+      - name: Zip Lambda Assets
+        run: zip lambda.zip app/index.js
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+          role-duration-seconds: 1200
+
+      - name: Push Zip to S3
+        run: aws s3 cp lambda.zip s3://spotify-recently-added-playlist-lambda-source/lambda.zip

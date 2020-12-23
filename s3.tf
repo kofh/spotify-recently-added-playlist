@@ -1,4 +1,4 @@
-resource "aws_s3_bucket" "lambda-assets-bucket" {
+resource "aws_s3_bucket" "lambda_assets_bucket" {
   bucket = var.bucket_name
   acl    = "private"
 

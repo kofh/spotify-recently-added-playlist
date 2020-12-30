@@ -11,7 +11,7 @@ data "aws_iam_policy_document" "ga_upload_lambda_source_policy" {
     ]
     resources = [
       aws_s3_bucket.lambda_assets_bucket.arn,
-      "${aws_s3_buket.lambda_assets_bucket.arn}/lambda.zip"
+      "${aws_s3_bucket.lambda_assets_bucket.arn}/lambda.zip"
     ]
   }
 }
@@ -19,7 +19,7 @@ data "aws_iam_policy_document" "ga_upload_lambda_source_policy" {
 
 resource "aws_iam_policy" "ga_upload_lambda_source" {
   name   = "ga-sra-upload-lambda-source"
-  policy = data.aws_iam_policy.ga_upload_lambda_source_policy.json
+  policy = data.aws_iam_policy_document.ga_upload_lambda_source_policy.json
 }
 
 data "aws_iam_policy_document" "ga_upload_lambda_source_role_trust_policy" {

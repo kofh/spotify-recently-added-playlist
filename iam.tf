@@ -18,7 +18,7 @@ data "aws_iam_policy_document" "ga_upload_lambda_source_policy" {
       "s3:PutObject",
     ]
     resources = [
-      "${aws_s3_bucket.lambda_assets_bucket.arn}/lambda.zip"
+      "${aws_s3_bucket.lambda_assets_bucket.arn}/*"
     ]
   }
 }

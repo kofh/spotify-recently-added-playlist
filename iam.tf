@@ -1,5 +1,5 @@
 data "aws_iam_user" "github_actions_deploy_user" {
-  user_name = "Github-Actions"
+  user_name = var.github_actions_username
 }
 
 data "aws_iam_policy_document" "ga_upload_lambda_source_policy" {
@@ -44,7 +44,7 @@ data "aws_iam_policy_document" "ga_upload_lambda_source_role_trust_policy" {
 }
 
 resource "aws_iam_role" "ga_upload_lambda_source" {
-  name               = "ga-sra-upload-lambda-source"
+  name               = var.github_actions_upload_lambda_source_role_name
   assume_role_policy = data.aws_iam_policy_document.ga_upload_lambda_source_role_trust_policy.json
 }
 

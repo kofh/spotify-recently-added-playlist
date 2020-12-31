@@ -36,18 +36,18 @@ Since this application will run in AWS, we'll need an AWS IAM User for Terraform
 1. Sign into the AWS console
 2. Go to the IAM service
 3. In the left sidebar, click on Users
-4. Click "Add User"
-5. Name the user `Terraform` (or whatever you'd like) and give it Programmatic Access
-6. Click "Next: Permissions"
-7. Click the "Attach existing policies directly" tab, and check the box for `AdministratorAccess` (this should be the first row).
-8. Click "Next: Tags" and add any tags you wish to add
-9. Click "Next: Review", review, and then click "Create User"
-10. You should now see a success message, with the new user's credentials below it. Copy both the Access Key ID and the Secret Access Key (or click "Download .csv")
-11. Take a sip of water, AWS can be stressful.
-12. Head back to the Terraform Cloud UI, and make sure you're in the workspace created earlier
-13. Click the Variables tab, and scroll down the Environment Variables
-14. Create `AWS_ACCESS_KEY_ID` and set it to the IAM User's Access Key ID. Make this variable sensitive.
-15. Create `AWS_SECRET_ACCESS_KEY` and set it to the IAM User's Secret Access Key. Make this variable sensitive.
+4. Click "Add User", and create a new user:
+   1. Name the user `Terraform` (or whatever you'd like) and give it Programmatic Access
+   2. Click "Next: Permissions"
+   3. Click the "Attach existing policies directly" tab, and check the box for `AdministratorAccess` (this should be the first row).
+   4. Click "Next: Tags" and add any tags you wish to add
+   5. Click "Next: Review", review, and then click "Create User"
+   6. You should now see a success message, with the new user's credentials below it. Copy both the Access Key ID and the Secret Access Key (or click "Download .csv")
+5. Take a sip of water, AWS can be stressful.
+6. Head back to the Terraform Cloud UI, and make sure you're in the workspace created earlier
+7. Click the Variables tab, and scroll down the Environment Variables
+8. Create `AWS_ACCESS_KEY_ID` and set it to the IAM User's Access Key ID. Make this variable sensitive.
+9. Create `AWS_SECRET_ACCESS_KEY` and set it to the IAM User's Secret Access Key. Make this variable sensitive.
 
 #### Deploying our Infrastructure
 
@@ -61,7 +61,7 @@ If something goes wrong here, the issue is likely with the authentication piece.
 
 If everything looks good, then we've successfully deployed all of the infrastructure we'll need to run the app, as well as the IAM permissions that GitHub Actions will use (discussed in the next section)
 
-#### Setting up GitHub Actions
+### GitHub Actions
 
 GitHub Actions handles moving our code from GitHub to AWS. As this is a common use case (move code from GitHub to AWS) I've set this bit up in a way that grows nicely with the number of projects using this pattern. It goes like this:
 

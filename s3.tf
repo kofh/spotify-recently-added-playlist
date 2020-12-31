@@ -1,5 +1,5 @@
-resource "aws_s3_bucket" "lambda_assets_bucket" {
-  bucket = var.bucket_name
+resource "aws_s3_bucket" "lambda_source_bucket" {
+  bucket = var.labmda_source_bucket_name
   acl    = "private"
 
   force_destroy = true

@@ -4,6 +4,8 @@ resource "aws_s3_bucket" "lambda_source_bucket" {
 
   force_destroy = true
 
+  storage_class = "ONEZONE_IA"
+
   server_side_encryption_configuration {
     rule {
       apply_server_side_encryption_by_default {

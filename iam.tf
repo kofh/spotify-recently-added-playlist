@@ -25,7 +25,7 @@ data "aws_iam_policy_document" "ga_upload_lambda_source_policy" {
 
 
 resource "aws_iam_policy" "ga_upload_lambda_source" {
-  name   = "sra-ga-upload-lambda-source"
+  name   = "ga-sra-upload-lambda-source"
   policy = data.aws_iam_policy_document.ga_upload_lambda_source_policy.json
 }
 
@@ -44,7 +44,7 @@ data "aws_iam_policy_document" "ga_upload_lambda_source_role_trust_policy" {
 }
 
 resource "aws_iam_role" "ga_upload_lambda_source" {
-  name               = "sra-ga-upload-lambda-source"
+  name               = "ga-sra-upload-lambda-source"
   assume_role_policy = data.aws_iam_policy_document.ga_upload_lambda_source_role_trust_policy.json
 }
 
